@@ -7,20 +7,20 @@ public class HomeWork5 {
     float[] arr = new float[size];
 
     public static void main(String[] args) {
-        float[] arr = new float[size];
         float[] a1 = new float[h];
         float[] a2 = new float[h];
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = 1;
-        }
 
-        consistentlyMethod(arr);
+        consistentlyMethod();
 
-        parallelMethod(arr, a1, a2);
+        parallelMethod(a1, a2);
 
     }
 
-    public static void consistentlyMethod(float[] arr){
+    public static void consistentlyMethod(){
+        float[] arr = new float[size];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = 1;
+        }
         long a = System.currentTimeMillis();
         for (int i = 0; i < arr.length; i++) {
             arr[i] = (float)(arr[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
@@ -29,7 +29,11 @@ public class HomeWork5 {
         System.out.println("Consistently : " + (System.currentTimeMillis() - a));
     }
 
-    public static void parallelMethod(float[] arr, float[] a1, float[] a2){
+    public static void parallelMethod(float[] a1, float[] a2){
+        float[] arr = new float[size];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = 1;
+        }
         long a = System.currentTimeMillis();
         System.arraycopy(arr, 0, a1, 0, h);
         System.arraycopy(arr, h, a2, 0, h);
